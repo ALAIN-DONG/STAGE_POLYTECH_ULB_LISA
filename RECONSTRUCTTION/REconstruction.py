@@ -163,10 +163,10 @@ def dispose_data(SW_TOF0 = False, SW_TOF1 = False, SW_TOF2 = False, internal = T
 
 
 
-def reconstruction(from_path=None, to_path=None,filtre = None, k = None, z_max = None, r = None, SW_TOF0 = False, SW_TOF1 = False, SW_TOF2 = False, internal = True, distance = 0, start_circle = 0, stop_circle = None, seuil = 200, speed_sample = 48, T=76187.43,):
+def reconstruction(from_path=None, to_path=None,filtre = None, k = None, z_max = None, r = None, SW_TOF0 = False, SW_TOF1 = False, SW_TOF2 = False, internal = True, distance = 0, start_circle = 0, stop_circle = None, seuil = 200, speed_sample = 48, T=7617.43,):
     data_calculated = dispose_data(SW_TOF0=SW_TOF0, SW_TOF1=SW_TOF1, SW_TOF2=SW_TOF2, internal=internal, distance=distance,
                                    start_circle=start_circle, stop_circle=stop_circle,
-                                   path=from_path,)
+                                   path=from_path,seuil = seuil, speed_sample = speed_sample, T=T)
     point = pd.DataFrame(data_calculated, columns=['x', 'y', 'z', ])
     cloud = PyntCloud(point)
 
